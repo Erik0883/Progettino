@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage Estivo 2026</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button id="theme-toggle" onclick="cambiaTema()">🌓 SWITCH TEMA</button>
+
+    <div id="login-screen" class="glass-card animate-fade-in">
+        <div class="exotic-badge">SYSTEM OVERVIEW</div>
+        
+        <div class="intro-box">
+            <h2>STAGE ESTIVO</h2>
+            <p class="intro-text">Benvenuto nel portale di documentazione. Questo applicativo contiene il diario di bordo dettagliato, il registro delle competenze e le soluzioni ai problemi tecnici affrontati durante il mio percorso di stage aziendale iniziato a Giugno 2026.</p>
+        </div>
+        
+        <hr class="neon-line">
+        <p style="font-size: 13px; color: #8fa0dd; margin-bottom: 15px;">Inserisci la chiave d'accesso per decrittare il diario:</p>
+        
+        <div class="input-group">
+            <input type="password" id="password-input" placeholder="Password di sistema...">
+        </div>
+        
+        <button onclick="verificaPassword()" class="btn-neon">INIZIALIZZA CONTROLLO</button>
+        <div id="error-msg"></div>
+    </div>
+
+    <div id="diario-content" class="glass-card main-diary">
+        <header class="diary-header" style="flex-direction: column; align-items: flex-start; gap: 15px;">
+            <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+                <h1>🛸 Diario di Bordo - Interfaccia Stage</h1>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="status-indicator"><span class="pulse-dot"></span> Sistema Online</div>
+                    <button onclick="logout()" class="btn-logout">LOGOUT</button>
+                </div>
+            </div>
+        
+        </header>
+        <hr class="neon-line">
+        
+        <p style="color: #8fa0dd; margin-bottom: 20px; font-size: 14px;">💡 Clicca su una giornata per aprire il Report di Missione dettagliato.</p>
+        
+        <div class="timeline">
+            
+            <div class="giornata entry-card" onclick="apriDettaglio('giorno1')">
+                <div class="entry-date"> 🛰Mercoledì 3 Giugno 2026</div>
+                <h3>Fase 01: Il Primo Impatto</h3>
+                <p>Oggi è stato il mio primo giorno ufficiale di stage! Primo briefing con il tutor e setup...</p>
+                <span class="click-more">Clicca per espandere ➔</span>
+            </div>
+
+            <div class="giornata entry-card" onclick="apriDettaglio('giorno2')">
+                <div class="entry-date"> 🛸Giovedì 4 Giugno 2026</div>
+                <h3>Fase 02: Analisi dell'Infrastruttura</h3>
+                <p>Ho iniziato a studiare il codice sorgente dell'applicazione e i software usati in azienda...</p>
+                <span class="click-more">Clicca per espandere ➔</span>
+            </div>
+
+            <div class="giornata entry-card" onclick="apriDettaglio('giorno3')">
+                <div class="entry-date"> 💻Venerdì 5 Giugno 2026</div>
+                <h3>Fase 03: Il vecchio programma</h3>
+                <p>Ho riscoperto il Progetto dell'anno scorso</p>
+                <span class="click-more">Clicca per espandere ➔</span>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="popup-dettaglio" class="modal-overlay">
+        <div class="glass-card modal-content">
+            <button class="close-btn" onclick="chiudiDettaglio()">&times;</button>
+            <div id="modal-body-content">
+                </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
