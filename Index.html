@@ -22,17 +22,17 @@
         <p style="font-size: 13px; color: #8fa0dd; margin-bottom: 15px;">Inserisci la chiave d'accesso per decrittare il diario:</p>
         
         <div class="input-group">
-            <input type="password" id="password-input" placeholder="Password di sistema...">
+            <input type="password" id="password-input" placeholder="Password per accedere">
         </div>
         
-        <button onclick="verificaPassword()" class="btn-neon">INIZIALIZZA CONTROLLO</button>
+        <button onclick="verificaPassword()" class="btn-neon">Accedi</button>
         <div id="error-msg"></div>
     </div>
 
     <div id="diario-content" class="glass-card main-diary">
         <header class="diary-header" style="flex-direction: column; align-items: flex-start; gap: 15px;">
             <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
-                <h1>🛸 Diario di Bordo - Interfaccia Stage</h1>
+                <h1>🛸 Diario di Bordo di Erik</h1>
                 <div style="display: flex; align-items: center; gap: 15px;">
                     <div class="status-indicator"><span class="pulse-dot"></span> Sistema Online</div>
                     <button onclick="logout()" class="btn-logout">LOGOUT</button>

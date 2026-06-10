@@ -1,5 +1,5 @@
 function verificaPassword() {
-    const passwordCorretta = "Gay"; 
+    const passwordCorretta = "Droga"; 
     const passwordInserita = document.getElementById("password-input").value;
     const loginScreen = document.getElementById("login-screen");
     const diarioContent = document.getElementById("diario-content");

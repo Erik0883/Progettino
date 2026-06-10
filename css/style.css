@@ -143,7 +143,7 @@ body {
 
 .status-indicator {
     font-size: 13px;
-    color: #39ff14;
+    color: #ff00f2;
     font-family: 'Orbitron', sans-serif;
 }
 
@@ -151,9 +151,9 @@ body {
     display: inline-block;
     width: 8px;
     height: 8px;
-    background: #39ff14;
+    background:#ff00f2;
     border-radius: 50%;
-    box-shadow: 0 0 8px #39ff14;
+    box-shadow: 0 0 8px #ff00f2;
     animation: pulse 1.5s infinite;
 }
 
