@@ -1,0 +1,169 @@
+function verificaPassword() {
+    const passwordCorretta = "Gay"; 
+    const passwordInserita = document.getElementById("password-input").value;
+    const loginScreen = document.getElementById("login-screen");
+    const diarioContent = document.getElementById("diario-content");
+    const errore = document.getElementById("error-msg");
+
+    if (passwordInserita === passwordCorretta) {
+        loginScreen.style.opacity = "0";
+        loginScreen.style.transform = "scale(0.9) translateY(-30px)";
+        setTimeout(() => {
+            loginScreen.style.display = "none";
+            diarioContent.style.display = "block";
+        }, 400);
+    } else {
+        errore.innerText = "❌ ACCESSO NEGATO: Credenziali errate.";
+        loginScreen.classList.add("shake");
+        setTimeout(() => { loginScreen.classList.remove("shake"); }, 300);
+        document.getElementById("password-input").value = "";
+    }
+}
+
+function logout() {
+    document.getElementById("diario-content").style.display = "none";
+    const loginScreen = document.getElementById("login-screen");
+    loginScreen.style.display = "block";
+    setTimeout(() => { loginScreen.style.opacity = "1"; }, 50);
+    document.getElementById("password-input").value = "";
+}
+
+function apriDettaglio(giorno) {
+    const modal = document.getElementById("popup-dettaglio");
+    const container = document.getElementById("modal-body-content");
+    
+    if (giorno === 'giorno1') {
+        container.innerHTML = `
+            <span class="exotic-badge">REPORT DI MISSIONE</span>
+            <h2 style="font-family: 'Orbitron'; color: #00f2fe; margin-bottom: 15px;">Fase 01: Il Primo Impatto</h2>
+            
+            <div class="stats-container" style="margin-bottom: 20px;">
+                <div class="stat-box" style="padding: 8px 12px;">
+                    <span class="stat-emoji">⏱️</span>
+                    <div>
+                        <div class="stat-value" style="font-size:14px;">8 Ore</div>
+                        <div class="stat-label">Durata</div>
+                    </div>
+                </div>
+                <div class="stat-box" style="padding: 8px 12px;">
+                    <span class="stat-emoji">🐛</span>
+                    <div>
+                        <div class="stat-value" style="font-size:14px; color:#ff4a5a;">1</div>
+                        <div class="stat-label">Bug Risolto</div>
+                    </div>
+                </div>
+                <div class="stat-box" style="padding: 8px 12px;">
+                    <span class="stat-emoji">☕</span>
+                    <div>
+                        <div class="stat-value" style="font-size:14px; color:#ff9f43;">2</div>
+                        <div class="stat-label">Caffè Presi</div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="color:#a4b3c6; line-height:1.6;">Nel primo giorno ho affrontato la parte burocratica e organizzativa dello stage. Il tutor mi ha presentato il team di sviluppo e illustrato gli obiettivi delle prossime settimane.</p>
+            
+            <div class="bug-box">
+                <strong style="color: #ff4a5a;">🛠️ Dettaglio del Bug:</strong>
+                <p style="font-size: 14px; margin-top: 5px; color: #e0e6ed;">L'installazione dell'ambiente Git dava un errore di permessi sulla cartella locale. Risolto avviando il terminale come amministratore.</p>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <strong style="display:block; margin-bottom: 5px;">Skills Acquisite:</strong>
+                <span class="skill-tag">#Git</span> <span class="skill-tag">#VSCode</span>
+            </div>
+        `;
+    } 
+    else if (giorno === 'giorno2') {
+        container.innerHTML = `
+            <span class="exotic-badge">REPORT DI MISSIONE</span>
+            <h2 style="font-family: 'Orbitron'; color: #00f2fe; margin-bottom: 15px;">Fase 02: Analisi dell'Infrastruttura</h2>
+            
+            <div class="stats-container" style="margin-bottom: 20px;">
+                <div class="stat-box" style="padding: 8px 12px;">
+                    <span class="stat-emoji">⏱️</span>
+                    <div>
+                        <div class="stat-value" style="font-size:14px;">8 Ore</div>
+                        <div class="stat-label">Durata</div>
+                    </div>
+                </div>
+                <div class="stat-box" style="padding: 8px 12px;">
+                    <span class="stat-emoji">🐛</span>
+                    <div>
+                        <div class="stat-value" style="font-size:14px; color:#39ff14;">0</div>
+                        <div class="stat-label">Bug Risolti</div>
+                    </div>
+                </div>
+                <div class="stat-box" style="padding: 8px 12px;">
+                    <span class="stat-emoji">☕</span>
+                    <div>
+                        <div class="stat-value" style="font-size:14px; color:#ff9f43;">3</div>
+                        <div class="stat-label">Caffè Presi</div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="color:#a4b3c6; line-height:1.6;">Oggi ho analizzato la struttura delle cartelle del software aziendale per capire come sono divisi i file sorgente e gli stili globali.</p>
+            
+            <div style="margin-top: 20px;">
+                <strong style="display:block; margin-bottom: 5px;">Skills Acquisite:</strong>
+                <span class="skill-tag">#ArchitetturaSoftware</span> <span class="skill-tag">#Documentazione</span>
+            </div>
+        `;
+    }
+
+    else if (giorno === 'giorno3') {
+        container.innerHTML = `
+            <span class="exotic-badge">REPORT DI MISSIONE</span>
+            <h2 style="font-family: 'Orbitron'; color: #00f2fe; margin-bottom: 15px;">Fase 02: Analisi del programma</h2>
+            
+            <div class="stats-container" style="margin-bottom: 20px;">
+                <div class="stat-box" style="padding: 8px 12px;">
+                    <span class="stat-emoji">⏱️</span>
+                    <div>
+                        <div class="stat-value" style="font-size:14px;">8 Ore</div>
+                        <div class="stat-label">Durata</div>
+                    </div>
+                </div>
+                <div class="stat-box" style="padding: 8px 12px;">
+                    <span class="stat-emoji">🐛</span>
+                    <div>
+                        <div class="stat-value" style="font-size:14px; color:#39ff14;">0</div>
+                        <div class="stat-label">Bug Risolti</div>
+                    </div>
+                </div>
+                <div class="stat-box" style="padding: 8px 12px;">
+                    <span class="stat-emoji">☕</span>
+                    <div>
+                        <div class="stat-value" style="font-size:14px; color:#ff9f43;">troppi</div>
+                        <div class="stat-label">Caffè Presi</div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="color:#a4b3c6; line-height:1.6;">Oggi ho analizzato la struttura delle cartelle del software aziendale per capire come sono divisi i file sorgente e gli stili globali.</p>
+            
+            <div style="margin-top: 20px;">
+                <strong style="display:block; margin-bottom: 5px;">Skills Acquisite:</strong>
+                <span class="skill-tag">#ArchitetturaSoftware</span> <span class="skill-tag">#Documentazione</span>
+            </div>
+        `;
+    }
+
+    modal.style.display = "flex";
+}
+
+function chiudiDettaglio() {
+    document.getElementById("popup-dettaglio").style.display = "none";
+}
+
+// Tasto Invio per la password
+document.getElementById("password-input").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") { verificaPassword(); }
+});
+
+// FUNZIONE PER IL CAMBIO TEMA (LIGHT/DARK)
+function cambiaTema() {
+    // Dice al body di attivare/disattivare la modalità chiara
+    document.body.classList.toggle("light-mode");
+}
