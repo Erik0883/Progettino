@@ -357,3 +357,10 @@ function cambiaTema() {
     // Dice al body di attivare/disattivare la modalità chiara
     document.body.classList.toggle("light-mode");
 }
+
+// Funzione per intercettare il tasto Invio direttamente dall'HTML
+function inviaConInvio(event) {
+    if (event.key === "Enter") {
+        verificaPassword();
+    }
+}

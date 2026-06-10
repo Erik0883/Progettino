@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stage Estivo 2026</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -22,7 +23,7 @@
         <p style="font-size: 13px; color: #8fa0dd; margin-bottom: 15px;">Inserisci la chiave d'accesso per decrittare il diario:</p>
         
         <div class="input-group">
-            <input type="password" id="password-input" placeholder="Password per accedere">
+            <input type="password" id="password-input" placeholder="Password per accedere" onkeypress="inviaConInvio(event)">
         </div>
         
         <button onclick="verificaPassword()" class="btn-neon">Accedi</button>
@@ -113,6 +114,6 @@
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+   
 </body>
 </html>
