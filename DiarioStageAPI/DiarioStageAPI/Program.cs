@@ -3,17 +3,24 @@ using DiarioStageAPI;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.AddScoped<DatabaseService>(); // Collega il servizio al motore di Dependency Injection
+
+// Registriamo il nuovo servizio basato su file JSON
+builder.Services.AddScoped<JsonStorageService>();
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
-        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
     });
 });
 
-builder.WebHost.UseUrls("http://localhost:5000");
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.ListenAnyIP(5000);
+});
 
 var app = builder.Build();
 

@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity.Data;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace DiarioStageAPI.Controllers
 {
@@ -8,66 +6,50 @@ namespace DiarioStageAPI.Controllers
     [Route("api")]
     public class DiarioController : ControllerBase
     {
-        private readonly DatabaseService _dbService;
+        private readonly JsonStorageService _storageService;
 
-        public DiarioController(DatabaseService dbService)
+        public DiarioController(JsonStorageService storageService)
         {
-            _dbService = dbService;
+            _storageService = storageService;
         }
 
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginRequest richiesta)
         {
-            if (richiesta == null || string.IsNullOrEmpty(richiesta.Username) || string.IsNullOrEmpty(richiesta.Password))
-                return BadRequest(new { autorizzato = false, messaggio = "Dati incompleti." });
+            // 🔐 MODIFICA QUESTE DUE RIGHE CON LE CREDENZIALI CHE PREFERISCI!
+            string usernameCorretto = "admin";
+            string passwordCorretta = "stage2026";
 
-            if (_dbService.AutenticaUtente(richiesta.Username, richiesta.Password))
-                return Ok(new { autorizzato = true, utente = richiesta.Username });
+            // Controlla se i dati inseriti nel sito corrispondono a quelli corretti
+            if (richiesta.Username == usernameCorretto && richiesta.Password == passwordCorretta)
+            {
+                // Se sono giusti, dà il via libera (Status 200 OK)
+                return Ok(new { autorizzato = true });
+            }
 
-            return Unauthorized(new { autorizzato = false, messaggio = "Credenziali SQL Server errate." });
+            // Se sono sbagliati, restituisce un errore di blocco (Status 401 Unauthorized)
+            return Unauthorized(new { messaggio = "Username o Password non validi!" });
         }
 
         [HttpGet("giornate")]
         public IActionResult GetGiornate()
         {
-            if (!Request.Headers.TryGetValue("X-DB-User", out var user) || !Request.Headers.TryGetValue("X-DB-Pass", out var pass))
-                return Unauthorized("Sessione mancante.");
-
-            return Ok(_dbService.OttieniTutteLeGiornate(user.ToString(), pass.ToString()));
+            var giornate = _storageService.OttieniTutteLeGiornate();
+            return Ok(giornate);
         }
 
         [HttpPost("giornate/salva")]
-        public IActionResult Salva([FromBody] Giornata g)
+        public IActionResult Salva([FromBody] Giornata giornata)
         {
-            if (!Request.Headers.TryGetValue("X-DB-User", out var user) || !Request.Headers.TryGetValue("X-DB-Pass", out var pass))
-                return Unauthorized("Sessione mancante.");
-
-            try
-            {
-                _dbService.SalvaOAggiornaGiornata(g, user.ToString(), pass.ToString());
-                return Ok(new { successo = true, messaggio = "Salvataggio completato con successo!" });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
+            _storageService.SalvaOAggiornaGiornata(giornata);
+            return Ok(new { messaggio = "Salvataggio completato nel file JSON!" });
         }
 
         [HttpDelete("giornate/elimina/{id}")]
         public IActionResult Elimina(int id)
         {
-            if (!Request.Headers.TryGetValue("X-DB-User", out var user) || !Request.Headers.TryGetValue("X-DB-Pass", out var pass))
-                return Unauthorized("Sessione mancante.");
-
-            try
-            {
-                _dbService.EliminaGiornata(id, user.ToString(), pass.ToString());
-                return Ok(new { successo = true, messaggio = "Giornata rimossa con successo." });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
+            _storageService.EliminaGiornata(id);
+            return Ok(new { messaggio = "Elemento rimosso dal file JSON!" });
         }
     }
 }
