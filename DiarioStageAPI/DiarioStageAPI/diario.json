@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "data_giorno": "2026-06-16",
+    "ore_lavorate": 8,
+    "caffe_presi": 0,
+    "bug_riscontrati": 0,
+    "bug_dettaglio": "Fisarmoni",
+    "descrizione_attivita": "Ochetta nera\n",
+    "fase_progetto": "Sviluppo"
+  }
+]
