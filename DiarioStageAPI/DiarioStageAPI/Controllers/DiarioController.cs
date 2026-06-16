@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace DiarioStageAPI.Controllers
 {
@@ -16,8 +17,9 @@ namespace DiarioStageAPI.Controllers
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginRequest richiesta)
         {
-            string usernameCorretto = "Admin";
-            string passwordCorretta = "Stage2026";
+            // 🔐 MODIFICA QUESTE DUE RIGHE CON LE CREDENZIALI CHE PREFERISCI!
+            string usernameCorretto = "admin";
+            string passwordCorretta = "Benito";
 
             // Controlla se i dati inseriti nel sito corrispondono a quelli corretti
             if (richiesta.Username == usernameCorretto && richiesta.Password == passwordCorretta)
@@ -49,6 +51,25 @@ namespace DiarioStageAPI.Controllers
         {
             _storageService.EliminaGiornata(id);
             return Ok(new { messaggio = "Elemento rimosso dal file JSON!" });
+        }
+
+        [HttpPost("giornate/importa")]
+        public IActionResult ImportaGiornate([FromBody] List<Giornata> nuoveGiornate)
+        {
+            try
+            {
+                // Converte la lista ricevuta in testo JSON formattato
+                var jsonTesto = JsonSerializer.Serialize(nuoveGiornate, new JsonSerializerOptions { WriteIndented = true });
+
+                // Sovrascrive il file fisico sul server
+                System.IO.File.WriteAllText("diario.json", jsonTesto);
+
+                return Ok(new { messaggio = "Importazione completata con successo!" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Errore interno: {ex.Message}");
+            }
         }
     }
 }
