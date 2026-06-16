@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stage Estivo 2026</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <button id="theme-toggle" onclick="cambiaTema()">🌓 SWITCH TEMA</button>
 
-    <div id="login-screen" class="glass-card animate-fade-in">
+    <div id="login-screen" class="glass-card">
         <div class="exotic-badge">SYSTEM OVERVIEW</div>
         
         <div class="intro-box">
@@ -20,8 +19,12 @@
         </div>
         
         <hr class="neon-line">
-        <p style="font-size: 13px; color: #8fa0dd; margin-bottom: 15px;">Inserisci la chiave d'accesso per decrittare il diario:</p>
+        <p style="font-size: 13px; color: #8fa0dd; margin-bottom: 15px;">Inserisci le credenziali d'accesso per decrittare il diario:</p>
         
+        <div class="input-group">
+            <input type="text" id="username-input" placeholder="Nome Utente SQL Server" onkeypress="inviaConInvio(event)">
+        </div>
+
         <div class="input-group">
             <input type="password" id="password-input" placeholder="Password per accedere" onkeypress="inviaConInvio(event)">
         </div>
@@ -30,91 +33,58 @@
         <div id="error-msg"></div>
     </div>
 
-    <div id="diario-content" class="glass-card main-diary">
-        <header class="diary-header" style="flex-direction: column; align-items: flex-start; gap: 15px;">
-            <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
-                <h1>🛸 Diario di Bordo di Erik</h1>
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <div class="status-indicator"><span class="pulse-dot"></span> Sistema Online</div>
-                    <button onclick="logout()" class="btn-logout">LOGOUT</button>
-                </div>
+    <div id="diario-content" class="glass-card main-diary" style="display: none;">
+        <header class="diary-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>🛸 Diario di Bordo di <span id="nomeUtenteLoggato">Erik</span></h1>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <button onclick="apriFormNuovo()" class="btn-neon" style="width: auto; margin-top: 0; padding: 5px 15px;">➕ NUOVO</button>
+                <button onclick="logout()" class="btn-logout">LOGOUT</button>
             </div>
-        
         </header>
+        
         <hr class="neon-line">
         
-        <p style="color: #8fa0dd; margin-bottom: 20px; font-size: 14px;">💡 Clicca su una giornata per aprire il Report di Missione dettagliato.</p>
-        
-        <div class="timeline">
-            
-            <div class="giornata entry-card" onclick="apriDettaglio('giorno1')">
-                <div class="entry-date"> 💾 Mercoledì 3 Giugno 2026</div>
-                <h3>Fase 01: Il Primo Impatto</h3>
-                <p>Oggi è stato il mio primo giorno ufficiale di stage! Primo briefing con il tutor e setup...</p>
-                <span class="click-more">Clicca per espandere ➔</span>
-            </div>
-
-            <div class="giornata entry-card" onclick="apriDettaglio('giorno2')">
-                <div class="entry-date"> 🛸Giovedì 4 Giugno 2026</div>
-                <h3>Fase 02: Analisi dell'Infrastruttura</h3>
-                <p>Ho iniziato a leggere dei codici</p>
-                <span class="click-more">Clicca per espandere ➔</span>
-            </div>
-
-            <div class="giornata entry-card" onclick="apriDettaglio('giorno3')">
-                <div class="entry-date"> 💻Venerdì 5 Giugno 2026</div>
-                <h3>Fase 03: Il vecchio programma</h3>
-                <p>Ho riscoperto il Progetto dell'anno scorso</p>
-                <span class="click-more">Clicca per espandere ➔</span>
-            </div>
-
-            <div class="giornata entry-card" onclick="apriDettaglio('giorno4')">
-                <div class="entry-date"> 🔊Lunedì 8 Giugno 2026</div>
-                <h3>Fase 04: La continuazione</h3>
-                <p>Ho proseguito con il progetto dell'anno scorso</p>
-                <span class="click-more">Clicca per espandere ➔</span>
-            </div>
-
-            <div class="giornata entry-card" onclick="apriDettaglio('giorno5')">
-                <div class="entry-date"> 👓Martedì 9 Giugno 2026</div>
-                <h3>Fase 05: Letture di codice</h3>
-                <p>Lettura di vari file per capire dei codici</p>
-                <span class="click-more">Clicca per espandere ➔</span>
-            </div>
-
-            <div class="giornata entry-card" onclick="apriDettaglio('giorno6')">
-                <div class="entry-date"> 🖥Mercoledì 10 Giugno 2026</div>
-                <h3>Fase 06: La creazione</h3>
-                <p>Creazione di questo progetto</p>
-                <span class="click-more">Clicca per espandere ➔</span>
-            </div>
-
-            <div class="giornata entry-card" onclick="apriDettaglio('giorno7')">
-                <div class="entry-date"> 🛠Giovedì 11 Giugno 2026</div>
-                <h3>Fase 07: Assente</h3>
-                <p>Sono stato a casa per motivi famigliari</p>
-                <span class="click-more">Clicca per espandere ➔</span>
-            </div>
-
-            <div class="giornata entry-card" onclick="apriDettaglio('giorno8')">
-                <div class="entry-date"> 🔈Venerdì 12 Giugno 2026</div>
-                <h3>Fase 08: boh</h3>
-                <p>Boh</p>
-                <span class="click-more">Clicca per espandere ➔</span>
-            </div>
-
+        <div class="stats-container">
+            <div class="stat-box">⏱️ Ore Totali: <span id="stat-ore" class="stat-value">0</span></div>
+            <div class="stat-box">☕ Caffè Presi: <span id="stat-caffe" class="stat-value">0</span></div>
+            <div class="stat-box">🐛 Bug Trovati: <span id="stat-bug" class="stat-value">0</span></div>
         </div>
+        
+        <div class="timeline" id="timelineContainer" style="margin-top: 20px;"></div>
     </div>
 
-    <div id="popup-dettaglio" class="modal-overlay">
+    <div id="popup-dettaglio" class="modal-overlay" style="display: none;">
         <div class="glass-card modal-content">
             <button class="close-btn" onclick="chiudiDettaglio()">&times;</button>
-            <div id="modal-body-content">
+            <h2 id="modalTitle" style="color: #00f2fe; margin-bottom: 20px;">Dettaglio Giornata</h2>
+            
+            <input type="hidden" id="txtId" value="0">
+            <div class="form-grid">
+                <div class="form-group"><label>Data</label><input type="date" id="txtData"></div>
+                <div class="form-group"><label>Ore</label><input type="number" step="0.5" id="txtOre"></div>
+                <div class="form-group"><label>Caffè</label><input type="number" id="txtCaffe"></div>
+            
+                <div class="form-group"><label>Bug</label><input type="number" id="txtBug"></div>
+                <div class="form-group form-span-2">
+                    <label>Fase Progetto</label>
+                    <select id="ddlFase">
+                        <option value="Sviluppo">Sviluppo</option>
+                        <option value="Testing">Testing</option>
+                        <option value="Bug Fixing">Bug Fixing</option>
+                    </select>
                 </div>
+            
+                <div class="form-group form-full"><label>Dettaglio Bug</label><input type="text" id="txtTitolo" placeholder="Es. NullReferenceException nel controller"></div>
+                <div class="form-group form-full"><label>Descrizione Attività</label><textarea id="txtDescrizione" rows="4" placeholder="Descrivi il lavoro svolto..."></textarea></div>
+            </div>
+
+            <div class="modal-footer">
+                <button id="btnElimina" class="btn-action btn-danger" onclick="eliminaGiornata()">🗑️ Rimuovi</button>
+                <button id="btnSalva" class="btn-action btn-success" onclick="salvaGiornata()">💾 Salva</button>
+            </div>
         </div>
     </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
-
-
-   

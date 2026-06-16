@@ -13,10 +13,11 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
+    padding: 20px;
 }
 
-/* CHICCA EXOTIC 1: EFFETTO VETRO SFOCATO (Glassmorphism) */
+/* EFFETTO VETRO SFOCATO (Glassmorphism) */
 .glass-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -26,14 +27,14 @@ body {
     padding: 40px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     transition: all 0.5s ease;
+    width: 100%;
 }
 
-/* SCHERMATA DI LOGIN */
+/* SCHERMATA DI LOGIN Centrata */
 #login-screen {
-    width: 100%;
     max-width: 420px;
     text-align: center;
-    z-index: 10;
+    margin: auto;
 }
 
 #login-screen h2 {
@@ -43,32 +44,13 @@ body {
     margin-bottom: 10px;
 }
 
-#login-screen p {
-    font-size: 14px;
-    color: #8fa0dd;
-    margin-bottom: 25px;
-}
-
-/* Badge di sicurezza */
-.exotic-badge {
-    background: rgba(0, 242, 254, 0.1);
-    color: #00f2fe;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-family: 'Orbitron', sans-serif;
-    display: inline-block;
-    margin-bottom: 15px;
-    border: 1px solid rgba(0, 242, 254, 0.3);
-}
-
 /* INPUT DESIGN */
 .input-group {
     position: relative;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
-#password-input {
+#username-input, #password-input {
     width: 100%;
     padding: 12px 20px;
     background: rgba(0, 0, 0, 0.4);
@@ -79,17 +61,16 @@ body {
     outline: none;
     transition: 0.3s;
     text-align: center;
+    font-family: 'Poppins', sans-serif;
 }
 
-#password-input:focus {
+#username-input:focus, #password-input:focus {
     border-color: #00f2fe;
     box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
 }
 
-/* CHICCA EXOTIC 2: BOTTONE AL NEON ANIMATO */
+/* BOTTONE NEON */
 .btn-neon {
-    position: relative;
-    display: inline-block;
     padding: 12px 30px;
     color: #00f2fe;
     text-transform: uppercase;
@@ -97,48 +78,32 @@ body {
     font-family: 'Orbitron', sans-serif;
     font-size: 13px;
     background: transparent;
-    border: none;
+    border: 1px solid #00f2fe;
     cursor: pointer;
-    overflow: hidden;
     transition: 0.5s;
     border-radius: 5px;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .btn-neon:hover {
     background: #00f2fe;
     color: #05070f;
-    box-shadow: 0 0 5px #00f2fe, 0 0 25px #00f2fe, 0 0 50px #00f2fe;
+    box-shadow: 0 0 15px #00f2fe;
 }
 
-/* MESSAGGIO ERRORE SHOCK */
-#error-msg {
-    color: #ff4a5a;
-    margin-top: 15px;
-    font-size: 13px;
-    font-weight: 600;
-    min-height: 20px;
-}
-
-/* CONTENUTO DIARIO PROTETTO */
+/* CONTENUTO DIARIO */
 #diario-content {
-    display: none;
-    width: 90%;
     max-width: 850px;
-    height: 85vh;
+    max-height: 90vh;
     overflow-y: auto;
-    z-index: 10;
 }
 
 .diary-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.diary-header h1 {
-    font-family: 'Orbitron', sans-serif;
-    color: #fff;
-    font-size: 24px;
+    width: 100%;
 }
 
 .status-indicator {
@@ -171,6 +136,7 @@ body {
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 0 12px 12px 0;
+    cursor: pointer;
     transition: 0.3s;
 }
 
@@ -179,154 +145,56 @@ body {
     transform: translateX(5px);
 }
 
-.entry-date {
-    font-family: 'Orbitron', sans-serif;
-    color: #4facfe;
-    font-size: 12px;
-    margin-bottom: 5px;
-}
-
-.entry-card h3 {
-    margin-bottom: 8px;
-    color: #fff;
-}
-
-.entry-card p {
-    color: #a4b3c6;
-    font-size: 15px;
-    line-height: 1.6;
-}
-
-/* ANIMAZIONI */
-@keyframes pulse {
-    0% { transform: scale(0.9); opacity: 0.7; }
-    50% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(0.9); opacity: 0.7; }
-}
-
-.shake {
-    animation: shake 0.3s ease-in-out;
-}
-
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    20%, 60% { transform: translateX(-10px); }
-    40%, 80% { transform: translateX(10px); }
-}
-
-/* Grafica per la mini introduzione nel login */
-.intro-box h2 {
-    font-size: 26px !important;
-    margin-bottom: 12px !important;
-}
-.intro-text {
-    font-size: 13.5px;
-    line-height: 1.6;
-    color: #a4b3c6 !important;
-    text-align: justify;
-    background: rgba(0, 0, 0, 0.2);
-    padding: 15px;
-    border-radius: 8px;
-    border-left: 2px solid #00f2fe;
-}
-
-/* Stile per il bottone di logout */
-.btn-logout {
-    background: rgba(255,74,90,0.15); 
-    color: #ff4a5a; 
-    border: 1px solid #ff4a5a; 
-    padding: 6px 14px; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    font-family: 'Orbitron', sans-serif; 
-    font-size: 11px;
-    transition: 0.3s;
-}
-.btn-logout:hover {
-    background: #ff4a5a;
-    color: #fff;
-    box-shadow: 0 0 10px #ff4a5a;
-}
-
-/* Testo "Clicca per espandere" */
-.click-more {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 12px;
-    color: #00f2fe;
-    font-family: 'Orbitron', sans-serif;
-}
-.giornata { cursor: pointer; }
-
-/* GRAFICA DEL POP-UP (MODALE) */
+/* POP-UP MODALE */
 .modal-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(5, 7, 15, 0.8);
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     z-index: 100;
-    display: none; /* Nascosto di base */
+    display: none;
     justify-content: center;
     align-items: center;
 }
+
 .modal-content {
     width: 90%;
     max-width: 700px;
-    max-height: 85vh;
-    overflow-y: auto;
-    position: relative;
     border: 1px solid rgba(0, 242, 254, 0.3);
-    box-shadow: 0 0 30px rgba(0, 242, 254, 0.1);
-}
-.close-btn {
-    position: absolute;
-    top: 15px; right: 20px;
-    background: transparent; border: none;
-    color: #ff4a5a; font-size: 30px; cursor: pointer;
-}
-.close-btn:hover { color: #ff0000; }
-
-/* Elementi interni del Pop-up */
-.bug-box {
-    background: rgba(255, 74, 90, 0.1);
-    border: 1px solid rgba(255, 74, 90, 0.3);
-    padding: 15px; border-radius: 8px; margin-top: 15px;
-}
-.skill-tag {
-    background: rgba(0, 242, 254, 0.15);
-    color: #00f2fe; padding: 4px 10px; border-radius: 4px;
-    font-size: 12px; display: inline-block; margin: 5px 5px 0 0;
 }
 
-#theme-toggle {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 150;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.form-full { grid-column: 1 / -1; }
+
+.form-group label {
+    color: #00f2fe;
     font-family: 'Orbitron', sans-serif;
     font-size: 11px;
-    transition: 0.3s;
-}
-#theme-toggle:hover {
-    border-color: #00f2fe;
-    box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+    margin-bottom: 5px;
 }
 
-/* GRAFICA CRUSCOTTO STATISTICHE */
+.form-group input, .form-group select, .form-group textarea {
+    background: rgba(13, 17, 23, 0.8);
+    border: 1px solid #30363d;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+/* CRUSCOTTO STATISTICHE */
 .stats-container {
     display: flex;
     gap: 15px;
     width: 100%;
     margin-top: 10px;
 }
+
 .stat-box {
     flex: 1;
     background: rgba(255, 255, 255, 0.02);
@@ -337,45 +205,207 @@ body {
     align-items: center;
     gap: 12px;
 }
-.stat-emoji { font-size: 20px; }
+
 .stat-value {
     font-family: 'Orbitron', sans-serif;
     font-size: 16px;
     color: #00f2fe;
-    font-weight: bold;
-}
-.stat-label {
-    font-size: 11px;
-    color: #8fa0dd;
 }
 
-/* STILI PER LA LIGHT MODE (TEMA CHIARO) */
-body.light-mode {
-    background: radial-gradient(circle at center, #eef2f7 0%, #d5deea 100%);
-    color: #333c4e;
+/* SWITCH LOGOUT & BOTTONI */
+.btn-logout {
+    background: rgba(255,74,90,0.15); 
+    color: #ff4a5a; 
+    border: 1px solid #ff4a5a; 
+    padding: 6px 14px; 
+    border-radius: 5px; 
+    cursor: pointer;
 }
-body.light-mode .glass-card {
-    background: rgba(255, 255, 255, 0.45);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
-    color: #333c4e;
+
+.btn-logout:hover { background: #ff4a5a; color: #fff; }
+
+#theme-toggle {
+    position: fixed; top: 20px; left: 20px; z-index: 150;
+    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff; padding: 8px 15px; border-radius: 20px; cursor: pointer;
 }
-body.light-mode #theme-toggle {
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: #333c4e;
+
+/* LIGHT MODE TEMA */
+body.light-mode { background: radial-gradient(circle at center, #eef2f7 0%, #d5deea 100%); color: #333c4e; }
+body.light-mode .glass-card { background: rgba(255, 255, 255, 0.8); color: #333c4e; border: 1px solid rgba(0,0,0,0.1); }
+body.light-mode #username-input, body.light-mode #password-input { background: white; color: #333; border: 1px solid #ccc; }
+
+@keyframes pulse {
+    0%, 100% { transform: scale(0.9); opacity: 0.7; }
+    50% { transform: scale(1.1); opacity: 1; }
 }
-body.light-mode #theme-toggle:hover { border-color: #4facfe; }
-body.light-mode #password-input {
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    color: #333;
+
+.shake { animation: shake 0.3s ease-in-out; }
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
 }
-body.light-mode .intro-text {
-    background: rgba(255, 255, 255, 0.5);
-    color: #4a5568 !important;
+
+
+/* Posizionamento relativo del popup per ancorare la X */
+.modal-content {
+    position: relative;
+    padding: 30px;
 }
-body.light-mode .entry-card { background: rgba(0, 0, 0, 0.02); }
-body.light-mode .entry-card h3, body.light-mode .diary-header h1 { color: #1a202c; }
-body.light-mode .entry-card p { color: #4a5568; }
-body.light-mode .stat-label { color: #64748b; }
+
+/* La X per uscire dal popup (in alto a destra) */
+.modal-content .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #8fa0dd;
+    font-size: 32px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    line-height: 1;
+    padding: 0;
+    width: auto;
+}
+
+/* Effetto illuminazione sulla X quando ci passi sopra */
+.modal-content .close-btn:hover {
+    color: #ff007f; /* Rosa Neon */
+    text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
+    transform: scale(1.15);
+}
+
+/* Contenitore inferiore dei bottoni (allineamento a destra) */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 35px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+/* Stile base comune per i bottoni Salva ed Elimina */
+.btn-action {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 💾 BOTTONE SALVA (Cyan Neon) */
+.btn-success {
+    background: rgba(0, 242, 254, 0.08);
+    border: 2px solid #00f2fe;
+    color: #00f2fe;
+    text-shadow: 0 0 5px rgba(0, 242, 254, 0.5);
+}
+
+.btn-success:hover {
+    background: #00f2fe;
+    color: #0d1117;
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+    transform: translateY(-2px);
+}
+
+/* 🗑️ BOTTONE RIMUOVI/ELIMINA (Rosso Neon) */
+.btn-danger {
+    background: rgba(255, 0, 127, 0.08);
+    border: 2px solid #ff007f;
+    color: #ff007f;
+    text-shadow: 0 0 5px rgba(255, 0, 127, 0.5);
+}
+
+.btn-danger:hover {
+    background: #ff007f;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 0, 127, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Effetto pressione al click per entrambi i bottoni */
+.btn-action:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+/* Forza la griglia principale su 3 colonne speculari */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Spazio identico tra un campo e l'altro */
+    margin-top: 25px;
+}
+
+/* Allinea verticalmente Etichetta + Campo di input */
+.form-group {
+    display: flex;
+    flex-direction: column; /* Mette il testo SOPRA il box */
+    gap: 8px; /* Distanza pulita tra testo e box */
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* Fa occupare al campo "Fase" le 2 colonne rimanenti per completare la riga */
+.form-span-2 {
+    grid-column: span 2;
+}
+
+/* Forza i campi lunghi (Dettaglio Bug e Descrizione) a estendersi su tutte e 3 le colonne */
+.form-full {
+    grid-column: span 3;
+}
+
+/* Stile ordinato e Cyberpunk per le scritte dei campi */
+.form-group label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #00f2fe; /* Azzurro Neon */
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* Uniforma le dimensioni di tutti i box di inserimento dati */
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100% !important; /* Costringe il box a prendere tutta la larghezza della sua colonna */
+    box-sizing: border-box;
+    background: rgba(13, 17, 23, 0.6) !important;
+    border: 1px solid rgba(143, 160, 221, 0.3) !important;
+    border-radius: 6px !important;
+    padding: 12px 14px !important;
+    color: #ffffff !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+/* Effetto di selezione luminosa quando l'utente clicca su un campo */
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00f2fe !important;
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.25);
+    background: rgba(13, 17, 23, 0.9) !important;
+}
+
+/* Blocca il ridimensionamento orizzontale della textarea per non spaccare la griglia */
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
