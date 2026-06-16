@@ -17,7 +17,7 @@ namespace DiarioStageAPI.Controllers
         public IActionResult Login([FromBody] LoginRequest richiesta)
         {
             string usernameCorretto = "Admin";
-            string passwordCorretta = "Pomodoro";
+            string passwordCorretta = "Stage2026";
 
             // Controlla se i dati inseriti nel sito corrispondono a quelli corretti
             if (richiesta.Username == usernameCorretto && richiesta.Password == passwordCorretta)
