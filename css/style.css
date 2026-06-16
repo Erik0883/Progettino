@@ -1,4 +1,16 @@
-/* RESET E CONFIGURAZIONE BASE */
+/* ========================================================
+   🎨 FONDO GENERALE E VARIABILI COLORI (CYBERPUNK THEME)
+   ======================================================== */
+   :root {
+    --bg-dark: #0a0a12;
+    --card-bg: rgba(16, 16, 30, 0.65);
+    --neon-blue: #00f2fe;
+    --neon-pink: #ff007f;
+    --neon-green: #00ff87;
+    --text-main: #ffffff;
+    --text-muted: #8fa0dd;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,406 +18,484 @@
 }
 
 body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
     font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle at center, #101424 0%, #05070f 100%);
-    color: #e0e6ed;
+    background-image: 
+        linear-gradient(rgba(18, 18, 36, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(18, 18, 36, 0.3) 1px, transparent 1px);
+    background-size: 30px 30px;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Effetto Vetro Sfumato per i pannelli */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Testi Neon */
+.neon-text-blue {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* ========================================================
+   🔒 SCHERMATA DI LOGIN
+   ======================================================== */
+.login-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow-x: hidden;
     padding: 20px;
 }
 
-/* EFFETTO VETRO SFOCATO (Glassmorphism) */
-.glass-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 16px;
-    padding: 40px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    transition: all 0.5s ease;
+.login-card {
     width: 100%;
-}
-
-/* SCHERMATA DI LOGIN Centrata */
-#login-screen {
     max-width: 420px;
+    padding: 40px 30px;
     text-align: center;
-    margin: auto;
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.1);
 }
 
-#login-screen h2 {
-    font-family: 'Orbitron', sans-serif;
-    color: #00f2fe;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
+.login-form {
+    margin-top: 30px;
+    text-align: left;
 }
 
-/* INPUT DESIGN */
 .input-group {
-    position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-#username-input, #password-input {
+.input-group label {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.input-group input {
     width: 100%;
-    padding: 12px 20px;
+    padding: 12px 15px;
     background: rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    border-radius: 4px;
     color: #fff;
-    font-size: 16px;
-    outline: none;
-    transition: 0.3s;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: inherit;
+    transition: all 0.3s;
 }
 
-#username-input:focus, #password-input:focus {
-    border-color: #00f2fe;
+.input-group input:focus {
+    outline: none;
+    border-color: var(--neon-blue);
     box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
 }
 
-/* BOTTONE NEON */
-.btn-neon {
-    padding: 12px 30px;
-    color: #00f2fe;
-    text-transform: uppercase;
-    letter-spacing: 4px;
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border: 1px solid var(--neon-blue);
+    border-radius: 4px;
+    color: var(--neon-blue);
     font-family: 'Orbitron', sans-serif;
     font-size: 13px;
-    background: transparent;
-    border: 1px solid #00f2fe;
+    font-weight: bold;
     cursor: pointer;
-    transition: 0.5s;
-    border-radius: 5px;
-    width: 100%;
+    transition: all 0.3s;
+    letter-spacing: 1px;
     margin-top: 10px;
 }
 
-.btn-neon:hover {
-    background: #00f2fe;
-    color: #05070f;
-    box-shadow: 0 0 15px #00f2fe;
+.btn-login:hover {
+    background: var(--neon-blue);
+    color: #000;
+    box-shadow: 0 0 15px var(--neon-blue);
 }
 
-/* CONTENUTO DIARIO */
-#diario-content {
-    max-width: 850px;
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-.diary-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.status-indicator {
-    font-size: 13px;
-    color: #ff00f2;
+.error-msg {
+    color: var(--neon-pink);
+    font-size: 12px;
+    margin-top: 15px;
+    text-align: center;
     font-family: 'Orbitron', sans-serif;
 }
 
-.pulse-dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background:#ff00f2;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #ff00f2;
-    animation: pulse 1.5s infinite;
+/* ========================================================
+   📊 DASHBOARD E HEADER
+   ======================================================== */
+.dashboard-wrapper {
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.neon-line {
-    border: none;
-    height: 1px;
-    background: linear-gradient(90deg, #00f2fe, transparent);
-    margin: 20px 0;
+.cyber-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 20px;
 }
 
-/* TIMELINE DELLE GIORNATE */
-.entry-card {
-    background: rgba(255, 255, 255, 0.02);
-    border-left: 4px solid #4facfe;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 0 12px 12px 0;
+.action-bar {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* ========================================================
+   🔘 BOTTONI GENERALI AZIONE
+   ======================================================== */
+.btn-action {
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
 }
 
-.entry-card:hover {
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateX(5px);
+.btn-primary {
+    background: transparent;
+    border-color: var(--neon-blue);
+    color: var(--neon-blue);
+}
+.btn-primary:hover {
+    background: var(--neon-blue);
+    color: #000;
+    box-shadow: 0 0 12px var(--neon-blue);
 }
 
-/* POP-UP MODALE */
+.btn-success {
+    background: transparent;
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+}
+.btn-success:hover {
+    background: var(--neon-green);
+    color: #000;
+    box-shadow: 0 0 12px var(--neon-green);
+}
+
+.btn-secondary {
+    background: transparent;
+    border-color: var(--text-muted);
+    color: var(--text-muted);
+}
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* ========================================================
+   ⚡ BOTTONE DI EMERGENZA (MINIGIOCO IN HEADER)
+   ======================================================== */
+.btn-emergency-game {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: rgba(255, 0, 127, 0.03);
+    border: 1px solid var(--neon-pink);
+    border-radius: 4px;
+    color: var(--neon-pink);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-emergency-game:hover {
+    background: var(--neon-pink);
+    color: #ffffff;
+    box-shadow: 0 0 15px var(--neon-pink);
+}
+
+.btn-emergency-game .scanner-line {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: skewX(-25deg);
+    animation: laser-scan 3s infinite linear;
+}
+
+@keyframes laser-scan {
+    0% { left: -100%; }
+    35% { left: 150%; }
+    100% { left: 150%; }
+}
+
+/* ========================================================
+   📋 TABELLA DATI
+   ======================================================== */
+.table-container {
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.cyber-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+}
+
+.cyber-table th {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    color: var(--text-muted);
+    padding: 15px 12px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+    letter-spacing: 1px;
+}
+
+.cyber-table td {
+    padding: 15px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.cyber-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+    color: #fff;
+}
+
+/* ========================================================
+   🎯 FINESTRE POPUP MODALI (OVERLAYS)
+   ======================================================== */
 .modal-overlay {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(5, 7, 15, 0.8);
-    backdrop-filter: blur(8px);
-    z-index: 100;
-    display: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(5, 5, 10, 0.85);
+    display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 999;
 }
 
 .modal-content {
     width: 90%;
-    max-width: 700px;
-    border: 1px solid rgba(0, 242, 254, 0.3);
+    max-width: 750px;
+    padding: 35px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.modal-title {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-blue);
+    margin-bottom: 25px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 28px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: var(--neon-pink);
+}
+
+/* 📐 GRIGLIA FORM SIMMETRICA APERTA */
 .form-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-top: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
-.form-full { grid-column: 1 / -1; }
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
 
 .form-group label {
-    color: #00f2fe;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 11px;
-    margin-bottom: 5px;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
 }
 
 .form-group input, .form-group select, .form-group textarea {
-    background: rgba(13, 17, 23, 0.8);
-    border: 1px solid #30363d;
-    color: white;
-    padding: 10px;
-    border-radius: 6px;
+    padding: 10px 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 13px;
 }
 
-/* CRUSCOTTO STATISTICHE */
-.stats-container {
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--neon-blue);
+}
+
+/* Classi helper per allargare i campi sulla griglia */
+.form-span-2 { grid-column: span 2; }
+.form-full { grid-column: span 3; }
+
+.modal-actions {
     display: flex;
+    justify-content: flex-end;
     gap: 15px;
-    width: 100%;
-    margin-top: 10px;
 }
 
-.stat-box {
+/* ========================================================
+   👾 INTERFACCIA GRAFICA ARCADE: BUG SMASHER
+   ======================================================== */
+.game-container {
+    width: 85vw;
+    height: 80vh;
+    max-width: 950px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--neon-pink) !important;
+    box-shadow: 0 0 25px rgba(255, 0, 127, 0.3) !important;
+    padding: 25px !important;
+}
+
+.arcade-title {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-pink);
+    text-shadow: 0 0 12px var(--neon-pink);
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--neon-blue);
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+#game-area {
     flex: 1;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(5, 5, 10, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 12px 15px;
-    border-radius: 8px;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+}
+
+/* Il Bug Bersaglio */
+.bug-target {
+    position: absolute;
+    padding: 8px 14px;
+    background: rgba(255, 0, 127, 0.1);
+    border: 2px solid var(--neon-pink);
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 900;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 0 12px var(--neon-pink);
+    animation: bug-shake 0.2s infinite alternate;
+}
+
+.bug-target:hover {
+    background: var(--neon-pink);
+    box-shadow: 0 0 20px var(--neon-pink);
+}
+
+@keyframes bug-shake {
+    0% { transform: translate(0, 0) rotate(-2deg); }
+    100% { transform: translate(2px, -1px) rotate(2deg); }
+}
+
+/* ==========================================
+   📊 GRIGLIA STATISTICHE INIZIO PAGINA (KPI)
+   ========================================== */
+   .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+}
+
+.stat-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
 }
 
 .stat-value {
     font-family: 'Orbitron', sans-serif;
-    font-size: 16px;
-    color: #00f2fe;
-}
-
-/* SWITCH LOGOUT & BOTTONI */
-.btn-logout {
-    background: rgba(255,74,90,0.15); 
-    color: #ff4a5a; 
-    border: 1px solid #ff4a5a; 
-    padding: 6px 14px; 
-    border-radius: 5px; 
-    cursor: pointer;
-}
-
-.btn-logout:hover { background: #ff4a5a; color: #fff; }
-
-#theme-toggle {
-    position: fixed; top: 20px; left: 20px; z-index: 150;
-    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #fff; padding: 8px 15px; border-radius: 20px; cursor: pointer;
-}
-
-/* LIGHT MODE TEMA */
-body.light-mode { background: radial-gradient(circle at center, #eef2f7 0%, #d5deea 100%); color: #333c4e; }
-body.light-mode .glass-card { background: rgba(255, 255, 255, 0.8); color: #333c4e; border: 1px solid rgba(0,0,0,0.1); }
-body.light-mode #username-input, body.light-mode #password-input { background: white; color: #333; border: 1px solid #ccc; }
-
-@keyframes pulse {
-    0%, 100% { transform: scale(0.9); opacity: 0.7; }
-    50% { transform: scale(1.1); opacity: 1; }
-}
-
-.shake { animation: shake 0.3s ease-in-out; }
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-8px); }
-    75% { transform: translateX(8px); }
-}
-
-
-/* Posizionamento relativo del popup per ancorare la X */
-.modal-content {
-    position: relative;
-    padding: 30px;
-}
-
-/* La X per uscire dal popup (in alto a destra) */
-.modal-content .close-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: transparent;
-    border: none;
-    color: #8fa0dd;
     font-size: 32px;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    line-height: 1;
-    padding: 0;
-    width: auto;
+    font-weight: 900;
 }
 
-/* Effetto illuminazione sulla X quando ci passi sopra */
-.modal-content .close-btn:hover {
-    color: #ff007f; /* Rosa Neon */
-    text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
-    transform: scale(1.15);
-}
+/* Colori specifici e bordi luminosi per scheda */
+.border-blue { border: 1px solid rgba(0, 242, 254, 0.2) !important; box-shadow: 0 0 15px rgba(0, 242, 254, 0.05); }
+.border-pink { border: 1px solid rgba(255, 0, 127, 0.2) !important; box-shadow: 0 0 15px rgba(255, 0, 127, 0.05); }
+.border-green { border: 1px solid rgba(0, 255, 135, 0.2) !important; box-shadow: 0 0 15px rgba(0, 255, 135, 0.05); }
 
-/* Contenitore inferiore dei bottoni (allineamento a destra) */
-.modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    margin-top: 35px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
-}
-
-/* Stile base comune per i bottoni Salva ed Elimina */
-.btn-action {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 12px 28px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* 💾 BOTTONE SALVA (Cyan Neon) */
-.btn-success {
-    background: rgba(0, 242, 254, 0.08);
-    border: 2px solid #00f2fe;
-    color: #00f2fe;
-    text-shadow: 0 0 5px rgba(0, 242, 254, 0.5);
-}
-
-.btn-success:hover {
-    background: #00f2fe;
-    color: #0d1117;
-    box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
-    transform: translateY(-2px);
-}
-
-/* 🗑️ BOTTONE RIMUOVI/ELIMINA (Rosso Neon) */
-.btn-danger {
-    background: rgba(255, 0, 127, 0.08);
-    border: 2px solid #ff007f;
-    color: #ff007f;
-    text-shadow: 0 0 5px rgba(255, 0, 127, 0.5);
-}
-
-.btn-danger:hover {
-    background: #ff007f;
-    color: #ffffff;
-    box-shadow: 0 0 20px rgba(255, 0, 127, 0.6);
-    transform: translateY(-2px);
-}
-
-/* Effetto pressione al click per entrambi i bottoni */
-.btn-action:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-/* Forza la griglia principale su 3 colonne speculari */
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px; /* Spazio identico tra un campo e l'altro */
-    margin-top: 25px;
-}
-
-/* Allinea verticalmente Etichetta + Campo di input */
-.form-group {
-    display: flex;
-    flex-direction: column; /* Mette il testo SOPRA il box */
-    gap: 8px; /* Distanza pulita tra testo e box */
-    align-items: flex-start;
-    width: 100%;
-}
-
-/* Fa occupare al campo "Fase" le 2 colonne rimanenti per completare la riga */
-.form-span-2 {
-    grid-column: span 2;
-}
-
-/* Forza i campi lunghi (Dettaglio Bug e Descrizione) a estendersi su tutte e 3 le colonne */
-.form-full {
-    grid-column: span 3;
-}
-
-/* Stile ordinato e Cyberpunk per le scritte dei campi */
-.form-group label {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    color: #00f2fe; /* Azzurro Neon */
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-
-/* Uniforma le dimensioni di tutti i box di inserimento dati */
-.form-group input, 
-.form-group select, 
-.form-group textarea {
-    width: 100% !important; /* Costringe il box a prendere tutta la larghezza della sua colonna */
-    box-sizing: border-box;
-    background: rgba(13, 17, 23, 0.6) !important;
-    border: 1px solid rgba(143, 160, 221, 0.3) !important;
-    border-radius: 6px !important;
-    padding: 12px 14px !important;
-    color: #ffffff !important;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    transition: all 0.2s ease;
-}
-
-/* Effetto di selezione luminosa quando l'utente clicca su un campo */
-.form-group input:focus, 
-.form-group select:focus, 
-.form-group textarea:focus {
-    outline: none;
-    border-color: #00f2fe !important;
-    box-shadow: 0 0 10px rgba(0, 242, 254, 0.25);
-    background: rgba(13, 17, 23, 0.9) !important;
-}
-
-/* Blocca il ridimensionamento orizzontale della textarea per non spaccare la griglia */
-.form-group textarea {
-    resize: vertical;
-    min-height: 100px;
-}
+.text-blue { color: var(--neon-blue); text-shadow: 0 0 10px rgba(0, 242, 254, 0.4); }
+.text-pink { color: var(--neon-pink); text-shadow: 0 0 10px rgba(255, 0, 127, 0.4); }
+.text-green { color: var(--neon-green); text-shadow: 0 0 10px rgba(0, 255, 135, 0.4); }
