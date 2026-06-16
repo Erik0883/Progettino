@@ -1,0 +1,60 @@
+[
+  {
+    "ContainingType": "DiarioStageAPI.Controllers.DiarioController",
+    "Method": "GetGiornate",
+    "RelativePath": "api/giornate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DiarioStageAPI.Controllers.DiarioController",
+    "Method": "Elimina",
+    "RelativePath": "api/giornate/elimina/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DiarioStageAPI.Controllers.DiarioController",
+    "Method": "Salva",
+    "RelativePath": "api/giornate/salva",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "g",
+        "Type": "DiarioStageAPI.Giornata",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DiarioStageAPI.Controllers.DiarioController",
+    "Method": "Login",
+    "RelativePath": "api/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "richiesta",
+        "Type": "DiarioStageAPI.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
