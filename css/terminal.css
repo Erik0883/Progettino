@@ -1,0 +1,147 @@
+/* Reset base */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+}
+
+/* Il canvas prende tutto lo schermo come sfondo */
+#matrixCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* La parola camuffata che fluttua sullo schermo */
+#glitch-trigger {
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    color: #008800;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px dashed #004400;
+    user-select: none;
+    animation: glitchFloat 8s infinite ease-in-out;
+}
+
+#glitch-trigger:hover {
+    color: #ffffff;
+    border-color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+/* Finestra di Pop-up della password */
+#crypto-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: #031403;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.4);
+    z-index: 10;
+    color: #00ff00;
+}
+
+.popup-header {
+    background-color: #00ff00;
+    color: black;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.popup-body {
+    padding: 20px;
+}
+
+.popup-body p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-top: 0;
+}
+
+/* Input Password */
+input[type="password"] {
+    width: 93%;
+    background-color: black;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    padding: 10px;
+    font-family: monospace;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+input[type="password"]:focus {
+    box-shadow: 0 0 8px #00ff00;
+}
+
+/* Bottoni */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background-color: #00ff00;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-family: monospace;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px #ffffff;
+}
+
+.btn-cancel {
+    background-color: transparent;
+    border: 1px solid #ff0000;
+    color: #ff0000;
+}
+
+.btn-cancel:hover {
+    background-color: #ff0000;
+    color: black;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+/* Messaggio Errore */
+#error-msg {
+    color: #ff3333;
+    font-size: 0.8rem;
+    margin-top: 15px;
+    display: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Animazione per far fluttuare la stringa segreta */
+@keyframes glitchFloat {
+    0% { top: 20%; left: 15%; }
+    25% { top: 65%; left: 40%; }
+    50% { top: 40%; left: 70%; }
+    75% { top: 80%; left: 25%; }
+    100% { top: 20%; left: 15%; }
+}

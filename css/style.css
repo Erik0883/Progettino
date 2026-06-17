@@ -499,3 +499,4 @@ body {
 .text-blue { color: var(--neon-blue); text-shadow: 0 0 10px rgba(0, 242, 254, 0.4); }
 .text-pink { color: var(--neon-pink); text-shadow: 0 0 10px rgba(255, 0, 127, 0.4); }
 .text-green { color: var(--neon-green); text-shadow: 0 0 10px rgba(0, 255, 135, 0.4); }
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Net-Core Override Terminal</title>
+    <link rel="stylesheet" href="css/terminal.css">
+
+</head>
+<body>
+
+    <canvas id="matrixCanvas"></canvas>
+
+    <div id="glitch-trigger" onclick="openTerminal()">[Error]</div>
+
+    <div id="crypto-popup">
+        <div class="popup-header">⚠️ COGNITIVE OVERRIDE DETECTED</div>
+        <div class="popup-body">
+            <p>SISTEMA BLOCCATO. INSERIRE STRINGA DI SBLOCCO PER ACCEDERE AL DATABASE SEGRETO:</p>
+            <input type="password" id="pass-input" placeholder="Inserisci password..." autocomplete="off">
+            <div class="button-container">
+                <button onclick="checkPassword()">DECRIPTA</button>
+                <button onclick="closeTerminal()" class="btn-cancel">ANNULLA</button>
+            </div>
+            <p id="error-msg">❌ ERROR: CREDENZIALI COGNITIVE NOT MATCHED</p>
+        </div>
+    </div>
+
+    <script src="js/terminal.js"></script>
+</body>
+</html>

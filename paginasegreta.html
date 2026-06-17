@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>SENTINEL // OPERATOR INTERFACE</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/paginasegreta.css">
+</head>
+<body>
+
+    <div id="map"></div>
+    <canvas id="canvas-radar"></canvas>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="header-main">
+                <h2>📡 SENTINEL v5.5</h2>
+                <div class="header-actions">
+                    <button class="nav-btn home-btn" onclick="tornaHome()">[HOME]</button>
+                </div>
+            </div>
+            <p>GLOBAL DATA & RISK MONITOR</p>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>🌍 REGIONI ATTIVE</h3>
+            <div id="country-selector" class="button-group">
+                </div>
+        </div>
+
+        <div class="sidebar-section metrics-box">
+            <h3>📊 MACRODATI ECONOMICI</h3>
+            
+            <div class="metric-row">
+                <div class="metric-labels">
+                    <span>👨‍👩‍👧‍👦 Popolazione</span>
+                    <span id="val-pop" class="metric-value">--</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="bar-pop" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="metric-row">
+                <div class="metric-labels">
+                    <span>💰 PIL Mondiale</span>
+                    <span id="val-pil" class="metric-value">--</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="bar-pil" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="metric-row">
+                <div class="metric-labels">
+                    <span>📉 Disoccupazione</span>
+                    <span id="val-dis" class="metric-value">--</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="bar-dis" class="progress-fill dis-color"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-section info-box">
+            <h3>📝 NOTA DI SICUREZZA</h3>
+            <div id="txt-stato" class="status-indicator">ATTESA..</div>
+            <p id="txt-nota" class="status-details">Seleziona una regione per estrarre i dati macroeconomici e aggiornare la mappa.</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/paginasegreta.js"></script>
+</body>
+</html>
