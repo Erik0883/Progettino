@@ -21,7 +21,8 @@ const datiEmergenza = [
     { "nazione": "Egitto", "rischio": 3, "stato": "Critico", "lat": 26.8206, "lng": 30.8025, "pop": "112 Mln", "pil": "395 Mld$", "dis": 6.9, "nota": "Sconsigliate alcune zone di confine. Richiesta massima prudenza." },
     { "nazione": "Russia", "rischio": 3, "stato": "Critico", "lat": 61.5240, "lng": 105.3188, "pop": "144 Mln", "pil": "2.0 Tril$", "dis": 2.6, "nota": "Restrizioni sui voli diretti e sanzioni bancarie attive sui circuiti esteri." },
     { "nazione": "Iran", "rischio": 3, "stato": "Critico", "lat": 32.4279, "lng": 53.6880, "pop": "89 Mln", "pil": "400 Mld$", "dis": 8.1, "nota": "Sconsigliati viaggi a qualsiasi titolo. Elevata tensione geopolitica nell'area." },
-    { "nazione": "Iraq", "rischio": 3, "stato": "Critico", "lat": 33.2232, "lng": 43.6793, "pop": "45 Mln", "pil": "250 Mld$", "dis": 15.5, "nota": "Quadro di sicurezza instabile. Monitoraggio radar militare costante." }
+    { "nazione": "Iraq", "rischio": 3, "stato": "Critico", "lat": 33.2232, "lng": 43.6793, "pop": "45 Mln", "pil": "250 Mld$", "dis": 15.5, "nota": "Quadro di sicurezza instabile. Monitoraggio radar militare costante." },
+    { "nazione": "Casa mia", "rischio": 3, "stato": "Critico", "lat": 46.0244,"lng": 10.8379, "pop": "100", "pil": "Basso", "dis": 5.5, "nota": "Quadro di sicurezza instabile. Zona di forti scoregge." }
 ];
 
 window.addEventListener('DOMContentLoaded', () => {
