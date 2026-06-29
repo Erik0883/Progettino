@@ -1,4 +1,4 @@
-[
+
   {
     "id": 2,
     "data_giorno": "2026-06-03",
@@ -7,7 +7,7 @@
     "bug_riscontrati": 4,
     "bug_dettaglio": "lettura",
     "descrizione_attivita": "Primo giorno di stage. Ho letto qualche file",
-    "fase_progetto": "Sviluppo"
+    "fase_progetto": "Lettura"
   },
   {
     "id": 3,
@@ -17,7 +17,7 @@
     "bug_riscontrati": 3,
     "bug_dettaglio": "lettura",
     "descrizione_attivita": "Oggi ho letto dei file per mettermi al punto sulla situazione",
-    "fase_progetto": "Sviluppo"
+    "fase_progetto": "Lettura"
   },
   {
     "id": 4,
@@ -37,7 +37,7 @@
     "bug_riscontrati": 3,
     "bug_dettaglio": "lettura",
     "descrizione_attivita": "oggi ho finito di leggere tutti i file assegnati ",
-    "fase_progetto": "Sviluppo"
+    "fase_progetto": "Lettura"
   },
   {
     "id": 6,
@@ -67,7 +67,7 @@
     "bug_riscontrati": 4,
     "bug_dettaglio": "Assenza",
     "descrizione_attivita": "Rimasto a casa per motivi famigliari",
-    "fase_progetto": "Sviluppo"
+    "fase_progetto": "Assenza"
   },
   {
     "id": 9,
@@ -97,7 +97,7 @@
     "bug_riscontrati": 5,
     "bug_dettaglio": "Progettino",
     "descrizione_attivita": "Oggi ho finalmente finito il programma, e ho cambiato modo di conservare i dati. Sono passato dal db a usare un foglio json ",
-    "fase_progetto": "Bug Fixing"
+    "fase_progetto": "Sviluppo"
   },
   {
     "id": 12,
@@ -117,7 +117,7 @@
     "bug_riscontrati": 0,
     "bug_dettaglio": "Assenza",
     "descrizione_attivita": "assenza certificata",
-    "fase_progetto": "Sviluppo"
+    "fase_progetto": "Assenza"
   },
   {
     "id": 14,
@@ -127,7 +127,7 @@
     "bug_riscontrati": 0,
     "bug_dettaglio": "Assenza",
     "descrizione_attivita": "Assenza certificata",
-    "fase_progetto": "Sviluppo"
+    "fase_progetto": "Assenza"
   },
   {
     "id": 15,
@@ -167,23 +167,23 @@
     "bug_riscontrati": 3,
     "bug_dettaglio": "Assenza",
     "descrizione_attivita": "Assenza per motivi famigliari",
-    "fase_progetto": "Sviluppo"
+    "fase_progetto": "Assenza"
   },
   {
     "id": 19,
     "data_giorno": "2026-06-26",
-    "ore_lavorate": 8,
-    "caffe_presi": 3,
-    "bug_riscontrati": 0,
-    "bug_dettaglio": "Progettino",
-    "descrizione_attivita": "Continuazione del mio progettino ",
-    "fase_progetto": "Sviluppo"
+    "ore_lavorate": 0,
+    "caffe_presi": 4,
+    "bug_riscontrati": 2,
+    "bug_dettaglio": "Assenza",
+    "descrizione_attivita": "Assenza per motivi di salute",
+    "fase_progetto": "Assenza"
   },
   {
     "id": 20,
     "data_giorno": "2026-06-29",
     "ore_lavorate": 8,
-    "caffe_presi": 3,
+    "caffe_presi": 4,
     "bug_riscontrati": 3,
     "bug_dettaglio": "Progettino",
     "descrizione_attivita": "continuazione del mio progettino ",
@@ -191,22 +191,12 @@
   },
   {
     "id": 21,
-    "data_giorno": "2026-06-28",
-    "ore_lavorate": 8,
-    "caffe_presi": 3,
-    "bug_riscontrati": 3,
-    "bug_dettaglio": "Progettino",
-    "descrizione_attivita": "Continuagione del mio progetto, quasi finito",
-    "fase_progetto": "Sviluppo"
-  },
-  {
-    "id": 22,
     "data_giorno": "2026-06-30",
     "ore_lavorate": 8,
-    "caffe_presi": 3,
-    "bug_riscontrati": 3,
+    "caffe_presi": 4,
+    "bug_riscontrati": 4,
     "bug_dettaglio": "Progettino",
-    "descrizione_attivita": "Ho finito il mio programma ",
+    "descrizione_attivita": "Ho finito il mio progetto",
     "fase_progetto": "Sviluppo"
   }
 ]
